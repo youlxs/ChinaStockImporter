@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F9E0DC4-3390-4F83-A258-67A75C1BD7B1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yootech.ChinaStockImporter</RootNamespace>
+    <AssemblyName>Yootech.ChinaStockImporter</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Assembly\ChinaStockImporter\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-SZ|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\ReleaseSZ\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-SH|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\ReleaseSH\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BulkExtensions\BulkOperationProvider.cs" />
+    <Compile Include="BulkExtensions\DbContextBulkOperationExtensions.cs" />
+    <Compile Include="BulkExtensions\Extensions\TypeExtensions.cs" />
+    <Compile Include="BulkExtensions\Mappings\ColumnMapping.cs" />
+    <Compile Include="BulkExtensions\Mappings\DbMapper.cs" />
+    <Compile Include="BulkExtensions\Mappings\DbMapping.cs" />
+    <Compile Include="BulkExtensions\Mappings\TableMapping.cs" />
+    <Compile Include="ChinaStockInfoProxy.cs" />
+    <Compile Include="Configuration\ConfigurationData.cs" />
+    <Compile Include="ConsoleServiceHelper.cs" />
+    <Compile Include="Context\ChinaStockContext.cs" />
+    <Compile Include="Context\IChinaStockContext.cs" />
+    <Compile Include="Entity\StockInfo.cs" />
+    <Compile Include="IServiceProxy.cs" />
+    <Compile Include="Proxy\ChinaStockInfoSZScratcherProxy.cs" />
+    <Compile Include="Repositories\ITypeRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\StockInfoRepository.cs" />
+    <Compile Include="ScratchParameter.cs" />
+    <Compile Include="Setting\ChinaStockInfoSSScratcherConfiguration.cs" />
+    <Compile Include="Setting\ChinaStockInfoSZScratcherConfiguration.cs" />
+    <Compile Include="Setting\IScratcherConfig.cs" />
+    <Compile Include="StockInfoScratcher.cs" />
+    <Compile Include="StockInfoScratcherAbstract.cs" />
+    <Compile Include="IStockInfoScratcher.cs" />
+    <Compile Include="Log\ILogger.cs" />
+    <Compile Include="Log\Log4NetLogger.cs" />
+    <Compile Include="Log\LogFactory.cs" />
+    <Compile Include="Mapping\ChinaStockInfoMap.cs" />
+    <Compile Include="PluginService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\ChinaStockInfoSSScratcherProxy.cs" />
+    <Compile Include="Proxy\IStockInfoScratcherProxy.cs" />
+    <Compile Include="Proxy\IProxy.cs" />
+    <Compile Include="ScratcherInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScratcherInstaller.Designer.cs">
+      <DependentUpon>ScratcherInstaller.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="App.config.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config.Debug.config">
+      <DependentUpon>App.config.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config.Release-SZ.config">
+      <DependentUpon>App.config.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config.Release-SH.config">
+      <DependentUpon>App.config.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ScratcherInstaller.resx">
+      <DependentUpon>ScratcherInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="AfterCompile">
+    <TransformXml Source="App.config.config" Destination="App.config" Transform="App.config.$(Configuration).config" StackTrace="true" />
+  </Target>
+</Project>

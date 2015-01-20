@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChinaStockImporter", "ChinaStockImporter\ChinaStockImporter.csproj", "{4F9E0DC4-3390-4F83-A258-67A75C1BD7B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release-SH|Any CPU = Release-SH|Any CPU
+		Release-SZ|Any CPU = Release-SZ|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F9E0DC4-3390-4F83-A258-67A75C1BD7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F9E0DC4-3390-4F83-A258-67A75C1BD7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F9E0DC4-3390-4F83-A258-67A75C1BD7B1}.Release-SH|Any CPU.ActiveCfg = Release-SH|Any CPU
+		{4F9E0DC4-3390-4F83-A258-67A75C1BD7B1}.Release-SH|Any CPU.Build.0 = Release-SH|Any CPU
+		{4F9E0DC4-3390-4F83-A258-67A75C1BD7B1}.Release-SZ|Any CPU.ActiveCfg = Release-SZ|Any CPU
+		{4F9E0DC4-3390-4F83-A258-67A75C1BD7B1}.Release-SZ|Any CPU.Build.0 = Release-SZ|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
